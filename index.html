@@ -298,9 +298,9 @@ pre{margin:10px 0 0;padding:12px;border:1px solid var(--line);border-radius:8px;
     <div class="layerbox" id="baBox">
       <div style="font-weight:600;color:var(--ink)">Burned area history (MODIS MCD64A1, 2001 to 2025)</div>
       <div class="row" style="margin-top:10px">
-        <div class="field"><label for="baLayer">Land cover mask</label><select id="baLayer"><option>Loading ...</option></select></div>
+        <div class="field"><label for="baLayer">Land cover mask</label><select id="baLayer" autocomplete="off"><option>Loading ...</option></select></div>
         <div class="field"><label for="baProduct">Show</label>
-          <select id="baProduct">
+          <select id="baProduct" autocomplete="off">
             <option value="year">Yearly burned area</option>
             <option value="prob">Burn probability</option>
             <option value="years">Years burned</option>
@@ -308,9 +308,9 @@ pre{margin:10px 0 0;padding:12px;border:1px solid var(--line);border-radius:8px;
           </select></div>
       </div>
       <div class="row">
-        <div class="field"><label for="baYear">Year</label><select id="baYear"></select></div>
+        <div class="field"><label for="baYear">Year</label><select id="baYear" autocomplete="off"></select></div>
         <div class="field"><label for="baDetail">Detail</label>
-          <select id="baDetail"><option value="1500">Fast (overview)</option><option value="0">Full 500 m</option></select></div>
+          <select id="baDetail" autocomplete="off"><option value="1500">Fast (overview)</option><option value="0">Full 500 m</option></select></div>
       </div>
       <div class="btns" style="margin-top:0">
         <button type="button" class="btn small" id="baPrev">Previous</button>
@@ -1337,7 +1337,7 @@ async function baUpdate() {
     cv.getContext("2d").putImageData(new ImageData(rgba, W, H), 0, 0);
     const blob = await new Promise(res => cv.toBlob(res, "image/png"));
     if (my !== ba.token) return;
-    const bb = img.getBoundingBox(), a = P(bb[0], bb[3]), b = P(bb[2], bb[1]);
+    const bb = (await tiff.getImage(0)).getBoundingBox(), a = P(bb[0], bb[3]), b = P(bb[2], bb[1]);   /* overviews carry no georeference, the full image does */
     const g = $("gBA"); g.innerHTML = "";
     const url = URL.createObjectURL(blob);
     const im = el("image", { x: a[0], y: a[1], width: b[0] - a[0], height: b[1] - a[1], preserveAspectRatio: "none",
@@ -1400,6 +1400,7 @@ function baControls() {
     const keys = Object.keys(m.layers), sel = $("baLayer"); sel.innerHTML = "";
     keys.forEach(k => { const o = document.createElement("option"); o.value = k; o.textContent = (m.labels && m.labels[k]) || k; sel.appendChild(o); });
     ba.layer = keys[keys.length - 1]; sel.value = ba.layer;
+    $("baProduct").value = ba.product; $("baDetail").value = "1500";
     baFillYears(); baControls();
     baStat("Ready. Tick the Burned area history box under the layers, or change a setting, to show it.");
     $("baLayer").onchange = () => { ba.layer = $("baLayer").value; baFillYears(); $("tBA").checked = true; baUpdate(); };
