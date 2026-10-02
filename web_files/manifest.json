@@ -1,0 +1,123 @@
+{
+  "crs": "EPSG:4326",
+  "bounds_west_south_east_north": [
+    68.12083332723071,
+    6.7499999993953,
+    97.41249999127328,
+    37.09999999667639
+  ],
+  "width": 7030,
+  "height": 7284,
+  "cell_size_deg": 0.004166666666293395,
+  "value_mode": "doy",
+  "mfri_edges": [
+    0,
+    2,
+    5,
+    10,
+    25
+  ],
+  "mfri_labels": [
+    "1 to 2 yr",
+    "3 to 5 yr",
+    "6 to 10 yr",
+    "11 to 25 yr",
+    "No fire (>25 yr)"
+  ],
+  "mfri_colors": [
+    "#7f0000",
+    "#d7301f",
+    "#fc8d59",
+    "#fdd49e",
+    "#dcdcdc"
+  ],
+  "states": "india_states.geojson",
+  "outline": "india_outline.geojson",
+  "state_stats": "state_stats.json",
+  "png_bounds_west_south_east_north": [
+    68.12083332723071,
+    6.7499999993953,
+    97.41249999127328,
+    37.09999999667639
+  ],
+  "png_block_pixels": 2,
+  "labels": {
+    "all_land": "All land (no land cover mask)",
+    "natural_vegetation": "Natural vegetation only (MCD12Q1 2001, IGBP 1 to 10)"
+  },
+  "year_value": "day of year of burning (1-366), 0 = not burned",
+  "probability_value": "percent of years with burned area (0-100), 255 = outside",
+  "years_burned_value": "number of years with burned area, 255 = outside",
+  "layers": {
+    "all_land": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "year_files": "all_land/{year}.tif",
+      "burn_probability": "all_land/burn_probability.tif",
+      "years_burned": "all_land/years_burned.tif",
+      "png_year": "all_land/png/{year}.png",
+      "png_probability": "all_land/png/probability.png",
+      "png_mfri": "all_land/png/mfri.png"
+    },
+    "natural_vegetation": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "year_files": "natural_vegetation/{year}.tif",
+      "burn_probability": "natural_vegetation/burn_probability.tif",
+      "years_burned": "natural_vegetation/years_burned.tif",
+      "png_year": "natural_vegetation/png/{year}.png",
+      "png_probability": "natural_vegetation/png/probability.png",
+      "png_mfri": "natural_vegetation/png/mfri.png"
+    }
+  }
+}
