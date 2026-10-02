@@ -6,6 +6,8 @@ Folders: all_land, natural_vegetation.
     manifest.json                 bounds, size and file patterns for the web page (ba_viewer.html)
     india_states.geojson          simplified state outlines for the web page
     india_outline.geojson         India outer border (no internal lines) for the web page
+    india_states_detail.geojson   finer state shapes for the page base map
+    landcover.png                 land cover base map (MCD12Q1 2001 groups) for the page
     state_stats.json              per state burned area per year and area by years burned (web page statistics)
     <folder>/png/YYYY.png, probability.png, mfri.png   small preview images the page shows instantly
 

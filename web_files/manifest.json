@@ -33,6 +33,42 @@
   ],
   "states": "india_states.geojson",
   "outline": "india_outline.geojson",
+  "states_detail": "india_states_detail.geojson",
+  "landcover_png": "landcover.png",
+  "landcover_legend": [
+    [
+      "Forest",
+      "#1a7a2e"
+    ],
+    [
+      "Shrubland",
+      "#8c6d31"
+    ],
+    [
+      "Savanna",
+      "#d9a441"
+    ],
+    [
+      "Grassland",
+      "#9ed36a"
+    ],
+    [
+      "Cropland and mosaic",
+      "#d95f4b"
+    ],
+    [
+      "Barren",
+      "#e6dcc3"
+    ],
+    [
+      "Urban",
+      "#6e6e6e"
+    ],
+    [
+      "Water, wetland, snow",
+      "#4a90d9"
+    ]
+  ],
   "state_stats": "state_stats.json",
   "png_bounds_west_south_east_north": [
     68.12083332723071,
